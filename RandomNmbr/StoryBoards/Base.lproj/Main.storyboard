@@ -66,7 +66,7 @@
                                     <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="getResult" destination="BYZ-38-t0r" eventType="touchUpInside" id="c6Q-rB-pK4"/>
+                                    <action selector="getResultBtnPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="c6Q-rB-pK4"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -84,22 +84,22 @@
                     <navigationItem key="navigationItem" title="Random number" id="ZYL-xv-VZu">
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="13i-IY-XuD">
                             <connections>
-                                <segue destination="pMa-kZ-Wkf" kind="presentation" id="NSL-gM-UXK"/>
+                                <segue destination="go5-FA-ELX" kind="presentation" id="NSL-gM-UXK"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="getResultButtom" destination="o8V-xI-5Tx" id="ZMF-l4-Ra8"/>
-                        <outlet property="maximumValue" destination="IMc-jT-JLC" id="TPR-Tk-LLC"/>
-                        <outlet property="minimumValue" destination="OcK-74-M1M" id="QEb-n5-Nwh"/>
-                        <outlet property="randomValue" destination="iq3-3i-nhc" id="W5R-a9-daP"/>
+                        <outlet property="maximumValueLabel" destination="IMc-jT-JLC" id="TPR-Tk-LLC"/>
+                        <outlet property="minimumValueLabel" destination="OcK-74-M1M" id="QEb-n5-Nwh"/>
+                        <outlet property="randomValueLabel" destination="iq3-3i-nhc" id="W5R-a9-daP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1016.25" y="67.605633802816897"/>
         </scene>
-        <!--Settings View Controller-->
+        <!--Settings-->
         <scene sceneID="AFx-8d-IAz">
             <objects>
                 <viewController id="pMa-kZ-Wkf" customClass="SettingsViewController" customModule="RandomNmbr" customModuleProvider="target" sceneMemberID="viewController">
@@ -108,7 +108,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="fRP-aR-tE9">
-                                <rect key="frame" x="60" y="55" width="200" height="87"/>
+                                <rect key="frame" x="60" y="111" width="200" height="87"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8PJ-zz-0dM">
                                         <rect key="frame" x="0.0" y="0.0" width="200" height="34"/>
@@ -122,39 +122,6 @@
                                     </textField>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Ujn-VU-TwI">
-                                <rect key="frame" x="114.5" y="220" width="91.5" height="108"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qj0-Dq-jyy">
-                                        <rect key="frame" x="0.0" y="0.0" width="91.5" height="50"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Save">
-                                            <backgroundConfiguration key="background">
-                                                <color key="backgroundColor" systemColor="systemGray3Color"/>
-                                            </backgroundConfiguration>
-                                            <fontDescription key="titleFontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="30"/>
-                                            <color key="baseForegroundColor" systemColor="tintColor"/>
-                                        </buttonConfiguration>
-                                        <connections>
-                                            <segue destination="fdE-3y-kTy" kind="unwind" unwindAction="unwindFor:" id="UQX-Ml-xZR"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ERD-Ej-K22">
-                                        <rect key="frame" x="0.0" y="58" width="91.5" height="50"/>
-                                        <color key="tintColor" systemColor="systemRedColor"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Close">
-                                            <backgroundConfiguration key="background">
-                                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
-                                            </backgroundConfiguration>
-                                            <fontDescription key="titleFontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="30"/>
-                                        </buttonConfiguration>
-                                        <connections>
-                                            <action selector="closeSetting" destination="pMa-kZ-Wkf" eventType="touchUpInside" id="bln-SX-Jf3"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="U2E-mH-z8t"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -162,19 +129,28 @@
                             <constraint firstItem="fRP-aR-tE9" firstAttribute="leading" secondItem="U2E-mH-z8t" secondAttribute="leading" constant="60" id="8QD-Db-WwM"/>
                             <constraint firstItem="fRP-aR-tE9" firstAttribute="top" secondItem="U2E-mH-z8t" secondAttribute="top" constant="55" id="JVM-Yf-cL8"/>
                             <constraint firstItem="U2E-mH-z8t" firstAttribute="trailing" secondItem="fRP-aR-tE9" secondAttribute="trailing" constant="60" id="MHw-US-1IJ"/>
-                            <constraint firstItem="Ujn-VU-TwI" firstAttribute="centerY" secondItem="hHj-W9-Plg" secondAttribute="centerY" id="bD9-Hk-Ka9"/>
-                            <constraint firstItem="Ujn-VU-TwI" firstAttribute="centerX" secondItem="hHj-W9-Plg" secondAttribute="centerX" id="fYN-Ze-Y4f"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Settings" id="n7i-xP-ww2">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="SCH-iz-U3j">
+                            <connections>
+                                <action selector="closeButtonPressed" destination="pMa-kZ-Wkf" id="bN1-pg-Fsp"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="FWa-zv-VMr">
+                            <connections>
+                                <action selector="saveButtonPressed" destination="pMa-kZ-Wkf" id="WCY-V5-dXf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="maximumValueTF" destination="JJ4-L9-LYG" id="Dxp-6q-wI0"/>
                         <outlet property="minimumValueTF" destination="8PJ-zz-0dM" id="URW-FE-YwH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SyY-IH-nS7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="fdE-3y-kTy" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1653.75" y="67.605633802816897"/>
+            <point key="canvasLocation" x="2394" y="68"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dhB-Pe-7zo">
@@ -194,25 +170,31 @@
             </objects>
             <point key="canvasLocation" x="368" y="68"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Uok-UK-Lg1">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="go5-FA-ELX" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hTC-W8-Gka">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="pMa-kZ-Wkf" kind="relationship" relationship="rootViewController" id="2uw-8f-XpL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rPd-t7-5m3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1695" y="68"/>
+        </scene>
     </scenes>
     <resources>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
-        <systemColor name="opaqueSeparatorColor">
-            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray3Color">
-            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="tintColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
